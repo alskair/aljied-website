@@ -1,0 +1,959 @@
+/*
+|--------------------------------------------------------------------------
+| 1. المتغيرات والوضع المظلم (DRY & Modern CSS)
+|--------------------------------------------------------------------------
+*/
+:root {
+    --color-primary: #a52d37; 
+    --color-hero-bg: #1c2a38; 
+    --color-scrolled-bg: #fff; 
+    --color-nav-link-initial: #c5c5c5; 
+    --color-nav-link-hover: #fff; 
+    --color-scrolled-link: #333; 
+    --color-text-white: #fff; 
+    --color-background: #fff;
+    --color-text: #333;
+    --color-light-bg: #f5f5f5; /* لون فاتح لخلفية الأقسام الثانوية مثل نبذة والأهداف */
+    --color-card-bg: #ffffff; 
+    --header-height: 100px; 
+}
+
+/* الوضع المظلم */
+body.dark-mode {
+    --color-background: var(--color-hero-bg); /* #1c2a38 */
+    --color-text: #f0f0f0;
+    --color-light-bg: #283a4c; /* لون أفتح قليلاً من #1c2a38 لخلفية الأقسام الثانوية */
+    --color-scrolled-bg: var(--color-hero-bg); 
+    --color-scrolled-link: #f0f0f0; 
+    --color-card-bg: #1a2a38; 
+}
+
+/*
+|--------------------------------------------------------------------------
+| 2. إعادة تعيين وتنسيقات أساسية
+|--------------------------------------------------------------------------
+*/
+*, *::before, *::after { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Tajawal', sans-serif; 
+    direction: rtl;
+    text-align: right;
+    background-color: var(--color-background);
+    background-image: none; 
+    background-attachment: initial; 
+    background-size: initial;
+    color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* تنسيق عام للخطوط العريضة */
+h1, h2, h3, h4, .navbar-nav .nav-item .nav-link, .btn, .logo-img { 
+    font-weight: 700 !important; 
+}
+
+/*
+|--------------------------------------------------------------------------
+| 3. الأنماط العامة وإعادة الاستخدام
+|--------------------------------------------------------------------------
+*/
+.container { 
+    padding-inline: 50px !important; 
+    width: 100% !important; 
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-xl {
+        max-width: 100% !important;
+    }
+}
+
+
+.py-lg { padding-block: 80px; }
+.section-title { font-size: 2.2rem; color: var(--color-primary); margin-bottom: 10px; }
+.section-subtitle-sm { font-size: 1.1rem; color: var(--color-text); font-weight: 500;}
+.primary-color { color: var(--color-primary); }
+
+
+/*
+|--------------------------------------------------------------------------
+| 4. شريط التنقل (Navbar)
+|--------------------------------------------------------------------------
+*/
+#main-header {
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+/* ... باقي تنسيقات شريط التنقل ... */
+#main-header .navbar {
+    width: 100%; 
+    height: 100%; 
+    padding: 0;
+    background-color: transparent; 
+    box-shadow: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.logo-img { 
+    /* **تم التعديل: حجم الشعار ليكون 40px** */
+    height: 40px; 
+    display: none; 
+}
+.navbar-nav .nav-item {
+    margin-inline-start: 35px !important; 
+    padding-inline: 0 !important;
+}
+.navbar-nav .nav-item .nav-link {
+    text-decoration: none;
+    padding: 10px 0 !important; 
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+.header-initial {
+    background-color: transparent; 
+    box-shadow: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.header-initial .logo-img.logo-initial { display: block; } 
+.header-initial .navbar-nav .nav-item .nav-link { 
+    color: var(--color-nav-link-initial); 
+}
+.header-initial .navbar-nav .nav-item .nav-link:hover { 
+    color: var(--color-nav-link-hover); 
+}
+.header-scrolled {
+    background-color: var(--color-scrolled-bg); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header-scrolled .logo-img.logo-scrolled { display: block; } 
+.header-scrolled .navbar-nav .nav-item .nav-link { 
+    color: var(--color-scrolled-link); 
+}
+.header-scrolled .navbar-nav .nav-item .nav-link:hover { 
+    color: var(--color-primary); 
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 5. الأزرار المخصصة (Buttons)
+|--------------------------------------------------------------------------
+*/
+.btn { 
+    text-decoration: none; 
+    padding: 10px 25px; 
+    border-radius: 5px; 
+    transition: all 0.3s; 
+    display: inline-block; 
+}
+.btn-primary { 
+    background-color: var(--color-primary); 
+    color: var(--color-text-white);
+    border: 1px solid var(--color-primary); 
+}
+.btn-primary:hover { 
+    background-color: var(--color-primary); 
+    color: var(--color-text-white);
+    transform: scale(1.05); 
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 6. قسم البطل (Hero Section) 
+|--------------------------------------------------------------------------
+*/
+.hero-section {
+    min-height: 800px; 
+    background-color: var(--color-hero-bg); 
+    background-image: url('full-background-image.webp'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: calc(-1 * var(--header-height)); 
+    padding-top: calc(var(--header-height) + 100px);
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(28, 42, 56, 0.75); 
+    z-index: 1;
+}
+
+.hero-section .container {
+    padding-inline: 0 !important;
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2; 
+    color: var(--color-text-white); 
+    max-width: 700px; 
+    text-align: right; 
+    padding-right: 50px; 
+    padding-left: 0;
+    margin-right: 0; 
+    margin-left: 0; 
+}
+.hero-title {
+    font-size: 3.8rem; 
+    line-height: 1.3;
+    color: var(--color-text-white) !important;
+    margin-bottom: 10px;
+}
+.subtitle-highlight {
+    font-size: 2.8rem;
+    color: var(--color-text-white) !important;
+    border-bottom: 4px solid var(--color-primary); 
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    position: relative; 
+}
+#typing-text::after {
+    content: '|'; 
+    display: inline-block;
+    animation: blink 0.7s infinite; 
+    margin-inline-start: 5px;
+    opacity: 1; 
+    color: var(--color-primary); 
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-description { 
+    font-size: 1.25rem; 
+    line-height: 1.8; 
+    margin-bottom: 30px; 
+    font-weight: 500; 
+    color: var(--color-text-white) !important; 
+    opacity: 0.9; 
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 7. قسم نبذة/الرحلة (About Section)
+|--------------------------------------------------------------------------
+*/
+.about-section { 
+    background-color: var(--color-light-bg); 
+    padding-block: 80px; 
+}
+
+.about-section .container {
+    padding-inline: 0 !important;
+}
+
+.about-section .row {
+    margin-inline: 0 !important;
+    display: flex; 
+    --bs-gutter-x: 0;
+    flex-direction: row; 
+}
+
+.about-content h2 { color: var(--color-primary); } 
+
+.about-content {
+    max-width: 750px;
+    padding-right: 50px !important; 
+    padding-left: 40px !important; 
+    margin-right: 0; 
+    margin-left: auto; 
+}
+
+.about-paragraph {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.info-list { list-style: none; padding: 0; margin-top: 20px; }
+.info-list li { margin-bottom: 10px; font-size: 1.1rem; font-weight: 500; }
+.info-list li i { color: var(--color-primary); margin-inline-end: 10px; }
+
+
+.about-video-col {
+    padding-right: 0 !important; 
+    padding-left: 50px !important; 
+}
+
+.about-video-col iframe {
+    aspect-ratio: 16 / 9 !important; 
+    max-width: 100% !important; 
+    min-height: auto !important; 
+    width: 100% !important; 
+    height: auto !important;
+    margin-right: auto !important; 
+    margin-left: 0 !important;
+    display: block !important; 
+    border-radius: 10px; 
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 8. زر الوضع المظلم العائم (Dark Mode Toggle)
+|--------------------------------------------------------------------------
+*/
+.floating-toggle {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    right: auto;
+    transform: translateY(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 9. قسم الأهداف (Goals Section) - تم التعديل للمحاذاة الوسطى
+|--------------------------------------------------------------------------
+*/
+.goals-section {
+    background-color: var(--color-background); 
+    padding-block: 80px;
+}
+.goals-section .container {
+    padding-inline: 0 !important; 
+}
+.goals-section .row {
+    margin-inline: 0 !important;
+}
+
+/* عنوان القسم ووصفه - **تم التعديل ليصبح في الوسط** */
+.goals-header {
+    /* **التعديل 1: إزالة الهامش الأيمن وتطبيق هامش تلقائي للمحاذاة الوسطى** */
+    padding-right: 0; 
+    max-width: 900px;
+    margin: 0 auto 50px auto; /* توسيط الكتلة وإضافة مسافة سفلية */
+    /* **التعديل 2: محاذاة النص في الوسط داخل الكتلة** */
+    text-align: center; 
+}
+.goals-header .section-title { 
+    color: var(--color-primary); 
+    margin-bottom: 5px; 
+}
+.goals-header .goals-description {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* تنسيق الشبكة (Grid) لعناصر الهدف */
+.goals-grid {
+    /* يجب الحفاظ على الهامش الأيمن والأيسر للشبكة (البطاقات) */
+    padding-right: 50px; 
+    padding-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px; 
+    margin-top: 50px;
+}
+
+.goal-card {
+    background-color: var(--color-card-bg); 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.goal-card-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-bg); 
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.goal-card-icon i {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+.goal-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.goal-card-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-weight: 400;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| 10. قسم الحقائب التدريبية (Training Modules) - تم التعديل للمحاذاة الوسطى
+|--------------------------------------------------------------------------
+*/
+.modules-section {
+    background-color: var(--color-light-bg); 
+    padding-block: 80px;
+}
+.modules-section .container {
+    padding-inline: 0 !important;
+}
+
+/* عنوان القسم الرئيسي ووصفه - **تم التعديل ليصبح في الوسط** */
+.modules-header {
+    /* **التعديل 1: إزالة الهامش الأيمن وتطبيق هامش تلقائي للمحاذاة الوسطى** */
+    padding-right: 0; 
+    max-width: 900px;
+    margin: 0 auto 50px auto; /* توسيط الكتلة وإضافة مسافة سفلية */
+    /* **التعديل 2: محاذاة النص في الوسط داخل الكتلة** */
+    text-align: center; 
+}
+
+/* عنوان القسم الرئيسي (حقائبنا التدريبية) */
+.modules-header .section-title { 
+    color: var(--color-primary); 
+    margin-bottom: 5px; 
+}
+
+/* الوصف تحت العنوان الرئيسي */
+.modules-header .modules-description {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* تنسيق المجموعة الواحدة (مثل مجموعة "التسويق" أو "التقنية") */
+.module-group {
+    /* تم الإبقاء على الهوامش الجانبية 50px لتبقى محاذية للمحتوى */
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 70px; /* مسافة بين المجموعات الرئيسية */
+}
+
+/* عنوان الحقيبة الرئيسية (مثل "التسويق" أو "علم النفس") */
+.module-group-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* الخط الأحمر تحت العنوان الرئيسي للمجموعة */
+.module-group-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+}
+
+/* تنسيق بطاقات الدورات داخل المجموعة (صف Bootstrap) */
+.module-cards-row {
+    margin-top: 30px;
+    /* لإزالة الهوامش الجانبية للـ row */
+    margin-inline: 0 !important; 
+}
+
+.module-card-col {
+    padding-inline: 15px !important; /* الهامش بين البطاقات */
+}
+
+/* تنسيق البطاقة الفردية للدورة (مثل "مبادئ التسويق") */
+.module-card {
+    background-color: var(--color-card-bg); /* لون الخلفية */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    min-height: 120px; /* ارتفاع أدنى لتبدو متناسقة */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.module-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+/* عنوان الدورة */
+.module-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+/* وصف الدورة */
+.module-card-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* عدد الساعات */
+.module-card-hours {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: 10px;
+}
+/* ... (التنسيقات السابقة من 1 إلى 10) ... */
+
+/*
+|--------------------------------------------------------------------------
+| 11. قسم المدربون (Trainers Section) - NEW
+|--------------------------------------------------------------------------
+*/
+.trainers-section {
+    background-color: var(--color-background); /* لون خلفية القسم */
+    padding-block: 80px;
+}
+.trainers-section .container {
+    padding-inline: 0 !important;
+}
+
+/* العنوان الرئيسي ووصفه (تم التوسيط سابقاً) */
+.trainers-header {
+    max-width: 900px;
+    margin: 0 auto 50px auto; 
+    text-align: center; 
+}
+.trainers-header .section-title { 
+    color: var(--color-primary); 
+    margin-bottom: 5px; 
+}
+.trainers-header .trainers-description {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* حاوية بطاقات المدربين */
+.trainers-grid {
+    padding-right: 50px; 
+    padding-left: 50px;
+    display: grid;
+    /* عرض 3 بطاقات في الصفوف الكبيرة، وتتجاوب تلقائياً */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+    margin-top: 50px;
+}
+
+/* تنسيق بطاقة المدرب الفردية */
+.trainer-card {
+    background-color: var(--color-card-bg); 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط المحتوى داخلياً (الصورة والاسم) */
+    text-align: center; /* توسيط النص */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trainer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق صورة المدرب */
+.trainer-image-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-primary); /* إطار حول الصورة */
+    box-shadow: 0 0 0 5px var(--color-card-bg); /* ظل خفيف لفصلها عن الإطار */
+}
+
+.trainer-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* التأكد من أن الصورة تملأ الحاوية الدائرية */
+}
+
+/* تنسيق اسم المدرب */
+.trainer-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+/* تنسيق التخصص/الوصف */
+.trainer-role {
+    font-size: 1rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* قائمة الخبرات/الدرجات العلمية */
+.trainer-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right; /* نقاط الخبرة محاذية لليمين داخل البطاقة */
+    width: 100%;
+    max-width: 300px; /* تحديد عرض القائمة لتكون منظمة */
+    padding-inline-start: 20px;
+}
+
+.trainer-info-list li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 5px;
+    position: relative;
+    padding-right: 15px; 
+    font-weight: 400;
+}
+
+/* شكل النقطة المخصصة للـ list */
+.trainer-info-list li::before {
+    content: '•';
+    color: var(--color-primary);
+    font-weight: 900;
+    display: inline-block;
+    width: 1em;
+    margin-right: -1em;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* ... (التنسيقات السابقة من 1 إلى 11) ... */
+
+/*
+|--------------------------------------------------------------------------
+| 12. قسم مؤسسة الجيد (Aljaied Foundation) - تم التعديل
+|--------------------------------------------------------------------------
+*/
+.foundation-section {
+    background-color: var(--color-light-bg); /* لون خلفية خفيف */
+    padding-block: 80px;
+}
+
+/* حاوية المحتوى لتوسيطها */
+.foundation-content {
+    max-width: 900px;
+    margin: 0 auto; 
+    text-align: center; 
+    padding-inline: 20px;
+}
+
+/* تنسيق شعار المؤسسة */
+.foundation-logo {
+    max-width: 250px; /* تحديد حجم أقصى للشعار */
+    height: auto;
+    margin-bottom: 25px;
+}
+
+/* تنسيق اسم المؤسسة - **تم التعديل ليصبح باللون الأحمر الأساسي** */
+.foundation-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary); /* تم تغيير اللون إلى var(--color-primary) */
+    margin-bottom: 15px;
+}
+
+/* تنسيق النص التعريفي للمؤسسة */
+.foundation-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    font-weight: 500;
+}
+/* ... (التنسيقات السابقة من 1 إلى 12) ... */
+
+/*
+|--------------------------------------------------------------------------
+| 13. قسم تواصل معنا (Contact Us) - NEW
+|--------------------------------------------------------------------------
+*/
+.contact-section {
+    background-color: var(--color-background); /* لون خلفية القسم */
+    padding-block: 80px;
+}
+
+/* عنوان ووصف القسم */
+.contact-header {
+    max-width: 900px;
+    margin: 0 auto 50px auto; 
+    text-align: center; /* توسيط النص */
+}
+
+/* عنوان القسم */
+.contact-header .section-title { 
+    color: var(--color-primary); 
+    margin-bottom: 5px; 
+}
+
+/* العنوان التحفيزي */
+.contact-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* وصف فريق العمل */
+.contact-header .contact-description {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* تنسيق النموذج العام */
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--color-light-bg); /* خلفية خفيفة للنموذج */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); 
+}
+
+/* تنسيق حقول الإدخال */
+.form-group label {
+    display: block;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 5px;
+    text-align: right; /* محاذاة اسم الحقل لليمين */
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    background-color: var(--color-card-bg); /* خلفية الحقل */
+    color: var(--color-text);
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(var(--color-primary), 0.2);
+    outline: none;
+}
+
+/* حقل الرسالة */
+textarea.form-control {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* زر الإرسال */
+.btn-submit {
+    display: block; /* جعل الزر يأخذ عرضاً كاملاً */
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: var(--color-primary);
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #8f2730; /* درجة أغمق قليلاً من الأحمر الأساسي */
+    transform: translateY(-2px);
+}
+/* ========================================================================= */
+/* 9. التذييل (Footer) - التصميم النهائي لتقصير المسافة العمودية */
+/* ========================================================================= */
+
+.footer-section {
+    background-color: #090c29 !important; /* لضمان استخدام هذا اللون */
+    padding: 2px 0 !important; /* تقليل البادينج العمودي إلى 2 بكسل فقط */
+    color: #fff;
+    border-top: 2px solid var(--primary-color); 
+    box-sizing: border-box; /* لضمان أن البادينج لا يزيد من الارتفاع الكلي بشكل غير متوقع */
+}
+
+.footer-content {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    line-height: 1; /* الأهم: يزيل المسافة الرأسية الزائدة حول المحتوى */
+}
+
+/* تنسيق الشعار (على اليمين) */
+.footer-logo .logo-img {
+    height: 25px !important; /* تحديد ارتفاع صغير للشعار لتقليص الفوتر */
+    width: auto;
+    /* إزالة أي مارجن رأسي قد يكون مضافًا للشعار */
+    margin-top: 0 !important; 
+    margin-bottom: 0 !important;
+    vertical-align: middle; /* للتأكد من محاذاته بشكل جيد */
+}
+
+/* تنسيق حقوق النشر (في المنتصف) */
+.copyright-text {
+    font-size: 11px !important; /* أصغر حجم ممكن للخط */
+    margin: 0 !important; /* إزالة أي هوامش تلقائية */
+    line-height: 1 !important; /* التأكيد على ارتفاع سطر واحد */
+    text-align: center; 
+    flex-grow: 1; 
+    padding: 0 5px; 
+}
+
+/* تنسيق أيقونات التواصل الاجتماعي (على اليسار) */
+.social-icons {
+    display: flex;
+    gap: 8px; /* تقليل المسافة بين الأيقونات */
+    margin: 0 !important;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 14px !important; /* أصغر حجم للأيقونات */
+    line-height: 1;
+}
+
+/* الاستجابة لتصميم الشاشات الصغيرة: يجب أن تظهر أطول قليلاً لسهولة الاستخدام */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 5px 0 !important; 
+    }
+    .footer-content {
+        flex-direction: column; 
+        gap: 5px;
+    }
+    .copyright-text {
+        font-size: 12px !important;
+        line-height: 1.3 !important;
+    }
+    .social-icons a {
+        font-size: 16px !important;
+    }
+}
+/* ===========================
+   Footer - isolated styles
+   =========================== */
+.my-footer {
+  background: #1a2a38;
+  padding: 24px 20px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* حاوية نسبية لتثبيت العناصر المطلقة داخلها */
+.my-footer-inner {
+  position: relative;
+  max-width: 1200px;       /* عدّل حسب عرض موقعك */
+  margin: 0 auto;
+  height: 60px;            /* ارتفاع السطر */
+  box-sizing: border-box;
+}
+
+/* الشعار في أقصى اليسار (absolute) */
+.my-footer-logo {
+  position: absolute;
+  right: 20px;              /* مسافة من اليسار */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.my-footer-logo img {
+  width: 55px;
+  height: auto;
+  display: block;
+}
+
+/* النص في المركز تماماً */
+.my-footer-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #c5d2e1;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 5;
+  text-align: center;
+}
+
+/* الأيقونات في أقصى اليمين (absolute) */
+.my-footer-icons {
+  position: absolute;
+  left: 20px;             /* مسافة من اليمين */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.my-footer-icons a {
+  color: #c5d2e1;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.my-footer-icons a:hover{
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+}
+
+/* ضمان عدم تأثر النص بـ RTL العام للصفحة */
+.my-footer, .my-footer * {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}

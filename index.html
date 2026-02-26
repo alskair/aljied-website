@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجيد - دبلومة مسار</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="main-header" class="header-initial fixed-top py-2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo-light.png" alt="شعار الجيد مسار" class="logo-img logo-initial">
+                    <img src="logo-dark.png" alt="شعار الجيد مسار" class="logo-img logo-scrolled">
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="تبديل القائمة">
+                    <i class="fas fa-bars text-white fs-2"></i>
+                </button>
+
+                <div class="collapse navbar-collapse text-center" id="mainNav">
+                    <ul class="navbar-nav ms-auto gap-lg-3 mt-3 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#home">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">نبذة</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#goals">الأهداف</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#bags">الحقائب التدريبية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#trainers">المدربون</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#institute">مؤسسة الجيد</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+                        <li class="nav-item">
+                            <a href="#contact" class="btn btn-primary px-4">سجل الآن</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <button id="dark-mode-toggle" class="floating-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <section id="home" class="hero-section d-flex align-items-center text-end">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">دبلومة مسار <br> تميز جامعي ومهني شامل</h1>
+                <h2 class="subtitle-highlight"><span id="typing-text"></span></h2>
+                <p class="hero-description">
+                    برنامج فريد لطلبة الثانوية وسنة أولى كلية يجمع بين المهارات العملية وتوجيه المسار لتحديد تخصصك وبناء مستقبل مهني مشرق.
+                </p>
+                <a href="#goals" class="btn btn-primary hero-btn">اكتشف الدبلومة</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section py-lg">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                
+                <div class="col-lg-7"> 
+                    <div class="about-content">
+                        <h2 class="section-title">ديبلومة مسار</h2>
+                        <p class="section-subtitle-sm">رحلة نحو مستقبل واعد</p>
+                        
+                        <p class="about-paragraph">
+                        تؤمن ديبلومة مسار بتمكين الشباب الليبي، ولهذا أطلقنا مشروعاً فريداً يستهدف <br> 
+                        طلبة الثانوية وخريجيها وطلبة السنة الأولى بالجامعة. نقدم لهم مجموعة متنوعة <br> 
+                        من الدورات والورش والأنشطة المصممة لإكسابهم المهارات الأساسية اللازمة للمرحلة <br> 
+                        الجامعية وما بعدها. هدفنا هو تمكين الطالب من استكشاف تخصصات مختلفة، واختيار <br> 
+                        مساره الجامعي والمهني بناء على شغف حقيقي وقدرة على التميز وما يعظم استثمار <br> 
+                        طاقات الشباب في خدمة المجتمع.
+                        </p>
+                        
+                        <ul class="info-list">
+                            <li><i class="fas fa-user-tie"></i> المدربون: فريق من 40 خبيراً</li>
+                            <li><i class="fas fa-users"></i> الفئة المستهدفة: خريجو الثانوية وطلبة الكلية (السنة الأولى)</li>
+                            <li><i class="fas fa-chalkboard"></i> المجالات: 8 مجالات متخصصة</li>
+                            <li><i class="fas fa-clipboard-list"></i> الحقائب التدريبية: 16 حقيبة تعليمية متكاملة</li>
+                        </ul>
+                        
+                        <a href="#contact" class="btn btn-primary mt-3">نموذج التسجيل</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 about-video-col"> 
+                    <iframe 
+                        src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Faljaiedcec%2Fvideos%2F1305230971188809%2F&show_text=false&width=560&t=0" 
+                        width="560" 
+                        height="314" 
+                        style="border:none;overflow:hidden" 
+                        scrolling="no" 
+                        frameborder="0" 
+                        allowfullscreen="true" 
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="goals" class="goals-section py-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="goals-header">
+                    <h2 class="section-title">أهدافنا</h2>
+                    <p class="goals-description">
+                        من خلال دبلومة مسار، نلتزم بتحقيق مجموعة من الأهداف الاستراتيجية التي تهدف إلى <br>
+                        تمكين الشباب وتوجيههم نحو مستقبل مملوء بالفرص والتميز.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="goals-grid">
+            
+            <div class="goal-card">
+                <div class="goal-card-icon">
+                    <i class="fas fa-suitcase-rolling"></i> 
+                </div>
+                <h3 class="goal-card-title">دعم التخصص</h3>
+                <p class="goal-card-description">
+                    توفير تجربة تعليمية متنوعة تمكن كل شاب من اكتشاف شغفهم وميولهم الحقيقية، وتمكينهم
+                    من تحديد مساراتهم الأكاديمية والمهنية بثقة ووضوح.
+                </p>
+            </div>
+
+            <div class="goal-card">
+                <div class="goal-card-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3 class="goal-card-title">اكتشاف الذات</h3>
+                <p class="goal-card-description">
+                    مساعدة المشاركين على اكتشاف شخصيتهم وقيمهم الحقيقية، وتمكينهم من تحديد مساراتهم الأكاديمية والمهنية بثقة ووضوح.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <div class="goal-card-icon">
+                    <i class="fas fa-stopwatch"></i>
+                </div>
+                <h3 class="goal-card-title">غرس قيم الانضباط</h3>
+                <p class="goal-card-description">
+                    صقل شخصية المشاركين وغرس قيم الانضباط التنافس الشريف، والمثابرة
+                    من خلال بيئة تعليمية محفزة بإشراف متخصص.
+                </p>
+            </div>
+            
+             <div class="goal-card">
+                <div class="goal-card-icon">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3 class="goal-card-title">تدريب وتمكين الشباب</h3>
+                <p class="goal-card-description">
+                    تزويد ما لا يقل عن 300 شاب وشابة بالمهارات والمعرفة في 8 مجالات رئيسية،
+                    عبر 16 حقيبة تدريبية متكاملة.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<section id="bags" class="modules-section py-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="modules-header">
+                    <h2 class="section-title">حقائبنا التدريبية</h2>
+                    <p class="modules-description">
+                        اكتشف مجموعة فريدة ومتنوعة من الحقائب التدريبية المصممة بعناية لتناسب 
+                        اهتماماتك وتطوير مهاراتك في أبرز المجالات المطلوبة لسوق العمل والمستقبل.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">مهارات ناعمة</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">بناء العادات</h4>
+                        <p class="module-card-description">تعلم كيف تبني عادات إيجابية تساعدك نحو التميز الذاتي وتحقيق أهدافك.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">فن الإلقاء والخطابة</h4>
+                        <p class="module-card-description">تعزز الثقة والعرض أمام الجمهور.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">فن الاتصال والتواصل الفعال</h4>
+                        <p class="module-card-description">مهارة محورية قبل الشروع في التخصصات الأخرى.</p>
+                        <p class="module-card-hours">3 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="module-group">
+            <h3 class="module-group-title">التسويق</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">مبادئ التسويق</h4>
+                        <p class="module-card-description">يربط بين مهارات الإدارة والبرمجة والتصميم.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">مهارات صحية</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">الإسعافات الأولية</h4>
+                        <p class="module-card-description">اكتساب مهارة حياتية وعملية ويدوية في الرعاية الصحية الطارئة، لتكون مستعدًا لتقديم المساعدة.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">الإعلام والتصميم</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">أساسيات التصميم</h4>
+                        <p class="module-card-description">مقدمة بصرية مهمة للعرض والتسويق.</p>
+                        <p class="module-card-hours">8 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">أساسيات التصوير</h4>
+                        <p class="module-card-description">مهارة فنية مرتبطة بالتسويق والإعلام.</p>
+                        <p class="module-card-hours">5 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">الفنون والمسرح</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">النشاط المسرحي</h4>
+                        <p class="module-card-description">تطوير مهارات الأداء والتفاعل الجماعي.</p>
+                        <p class="module-card-hours">5 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">الرسم للمبتدئين</h4>
+                        <p class="module-card-description">تنمية الذوق الفني والتعبير الإبداعي.</p>
+                        <p class="module-card-hours">3 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">علم النفس</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">صحة نفسية</h4>
+                        <p class="module-card-description">تعريف الدارسين بمفاهيم الصحة النفسية وتأثيرها على الحياة اليومية.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">الإدارة</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">إدارة المشاريع التطوعية</h4>
+                        <p class="module-card-description">تطوير مهارات القيادة والتنظيم.</p>
+                        <p class="module-card-hours">6 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">الثقافة المالية وإدارة الميزانية</h4>
+                        <p class="module-card-description">أساس إداري ومالي داعم للمشاريع.</p>
+                        <p class="module-card-hours">5 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">اللغات</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">التعليم الذاتي للغات</h4>
+                        <p class="module-card-description">اكتساب استراتيجيات فعالة لإتقان اللغات بنفسك، وعزز مهاراتك اللغوية المستقلة.</p>
+                        <p class="module-card-hours">3 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">التقنية</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">الابتكار باستخدام أدوات الذكاء الاصطناعي</h4>
+                        <p class="module-card-description">تعلم كيفية استخدام أدوات الذكاء الاصطناعي المبتكرة في التصميم، الكتابة، الأعمال، وتعزيز إبداعك الشخصي.</p>
+                        <p class="module-card-hours">3 ساعات</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">باقة الأوفيس</h4>
+                        <p class="module-card-description">مهارة مكتبية داعمة لجميع التخصصات.</p>
+                        <p class="module-card-hours">8 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
+            <h3 class="module-group-title">مهارات</h3>
+            <div class="row module-cards-row">
+                <div class="col-lg-4 col-md-6 module-card-col mb-4">
+                    <div class="module-card">
+                        <h4 class="module-card-title">كيفية اختيار تخصصك الجامعي</h4>
+                        <p class="module-card-description">توضيح المجالات الجامعية.</p>
+                        <p class="module-card-hours">3 ساعات</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section id="trainers" class="trainers-section py-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="trainers-header">
+                    <h2 class="section-title">المدربون</h2>
+                    <p class="trainers-description">
+                        تعرف على خبرائنا
+                        <br>
+                        نخبة من المدربين المتخصصين والمتميزين في مجالاتهم، يشاركونك خبراتهم لقيادتك نحو النجاح.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="trainers-grid">
+            
+            <div class="trainer-card">
+                <div class="trainer-image-container">
+                    <img src="abubaker.jpg" alt="صورة المدرب أبوبكر عبد الله عطو">
+                </div>
+                <h3 class="trainer-name">أبوبكر عبد الله عطو</h3>
+                <p class="trainer-role">رئيس قسم التدريب</p>
+                <ul class="trainer-info-list">
+                    <li>مدرب في مجال المهارات والقدرات المهنية والوظيفية</li>
+                    <li>الدرجة العلمية: ماجستير فنر علم النفس</li>
+                    <li>تخصص دقيق في الصحة النفسية</li>
+                    <li>مدير عقاري، مصراتة</li>
+                </ul>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image-container">
+                    <img src="anwar.jpg" alt="صورة المدرب أنور فرج النير">
+                </div>
+                <h3 class="trainer-name">أنور فرج النير</h3>
+                <p class="trainer-role">فنان مسرحي</p>
+                <ul class="trainer-info-list">
+                    <li>فنان مسرحي يساعد الشباب على تطوير شخصيتهم واكتساب مهارات وخبرات جديدة.</li>
+                    <li>الدرجة العلمية: ماجستير فنون سمعية وبصرية من الأكاديمية الليبية.</li>
+                </ul>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image-container">
+                    <img src="yaqoub.jpg" alt="صورة المدرب يعقوب الشين">
+                </div>
+                <h3 class="trainer-name">يعقوب الشين</h3>
+                <p class="trainer-role">مدرب دولي معتمد</p>
+                <ul class="trainer-info-list">
+                    <li>مدرب في المجال الصحي منذ 5 سنوات.</li>
+                    <li>مسؤول مجموعة العلوم الصحية.</li>
+                    <li>مدرب معتمد دولياً.</li>
+                </ul>
+            </div>
+            
+            <div class="trainer-card">
+                <div class="trainer-image-container">
+                    <img src="salem.jpg" alt="صورة المدرب سالم مفتاح محمد القرطبي">
+                </div>
+                <h3 class="trainer-name">سالم مفتاح محمد القرطبي</h3>
+                <p class="trainer-role">المدير المالي لدبلومة مسار</p>
+                <ul class="trainer-info-list">
+                    <li>يعمل على تطوير الموارد المالية وضمان كفاءة العمليات المحاسبية.</li>
+                    <li>الدرجة العلمية: ماجستير في المحاسبة.</li>
+                </ul>
+            </div>
+
+            <div class="trainer-card">
+                <div class="trainer-image-container">
+                    <img src="mohammad.jpg" alt="صورة المدرب محمد مفتاح سلامة">
+                </div>
+                <h3 class="trainer-name">محمد مفتاح سلامة</h3>
+                <p class="trainer-role">مدرب وصانع محتوى في مجال الإعلام</p>
+                <ul class="trainer-info-list">
+                    <li>الدرجة العلمية: دبلوم عالي في إدارة الأعمال.</li>
+                </ul>
+            </div>
+            
+            </div>
+    </div>
+</section>
+<section id="institute" class="foundation-section py-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="foundation-content">
+                    
+                    <img src="logo-light.png" alt="شعار الجيد لريادة الأعمال المجتمعية" class="foundation-logo">
+
+                    <h2 class="foundation-name">مؤسسة الجيد</h2>
+
+                    <p class="foundation-description">
+                        مؤسسة ليبية مستقلة تُعنى بدعم الابتكار وريادة الأعمال، وتسعى لتمكين الكفاءات الشابة وتحفيز
+                        المبادرات المجتمعية من خلال برامج متنوعة تهدف لبناء بيئة ريادية فاعلة ومستدامة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="contact-section py-lg">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="contact-header">
+                    <h2 class="section-title">تواصل معنا</h2>
+                    <h3>لا تتردد في التواصل مع فريقنا</h3>
+                    <p class="contact-description">
+                        فريقنا مستعد للإجابة على جميع أسئلتك ومساعدتك في اختيار المسار الأنسب لك.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <form action="send_message.php" method="POST">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="example@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">الاسم</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="الاسم" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">الموضوع</label>
+                    <input type="text" id="subject" name="subject" class="form-control" placeholder="الموضوع" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">الرسالة</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="الرسالة" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">إرسال الرسالة</button>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="my-footer">
+  <div class="my-footer-inner">
+    <div class="my-footer-logo">
+      <img src="logo.png" alt="logo">
+    </div>
+
+    <div class="my-footer-center">
+      جميع الحقوق محفوظة © مؤسسة الجيد لريادة الأعمال المجتمعية 2025
+    </div>
+
+    <div class="my-footer-icons">
+      <a href="#" aria-label="facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
